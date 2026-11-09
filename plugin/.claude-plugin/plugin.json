@@ -1,13 +1,16 @@
 {
   "name": "dazzle",
   "version": "0.1.1",
-  "description": "Design levers, a studio and checks for original sites built with Claude Code.",
+  "description": "Art direction, tested recipes and design checks for original, award-level sites, tunable in Dazzle Studio.",
   "author": {
     "name": "Rosdal",
     "url": "https://github.com/Rosdal"
   },
-  "homepage": "https://github.com/Rosdal/dazzle",
-  "repository": "https://github.com/Rosdal/dazzle",
+  "homepage": "https://github.com/rosdal/dazzle",
+  "repository": "https://github.com/rosdal/dazzle",
   "license": "MIT",
-  "keywords": ["design", "vite", "frontend"]
+  "keywords": ["design", "web design", "animation", "gsap", "threejs", "webgl", "vite"],
+  "commands": "./commands/",
+  "skills": "./skills/",
+  "hooks": "./hooks/hooks.json"
 }

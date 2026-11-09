@@ -7,23 +7,82 @@
   "required": ["name", "version", "description", "author"],
   "additionalProperties": false,
   "properties": {
-    "$schema": { "type": "string" },
-    "name": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+    "$schema": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
     "version": {
       "type": "string",
       "pattern": "^\\d+\\.\\d+\\.\\d+(-[0-9A-Za-z.-]+)?$"
     },
-    "description": { "type": "string", "minLength": 1 },
-    "author": { "$ref": "#/definitions/person" },
-    "homepage": { "type": "string", "format": "uri" },
-    "repository": { "type": "string", "format": "uri" },
-    "license": { "type": "string" },
-    "keywords": { "type": "array", "items": { "type": "string" } },
-    "commands": { "$ref": "#/definitions/paths" },
-    "agents": { "$ref": "#/definitions/paths" },
-    "skills": { "$ref": "#/definitions/paths" },
-    "hooks": { "oneOf": [{ "type": "string" }, { "type": "object" }] },
-    "mcpServers": { "oneOf": [{ "type": "string" }, { "type": "object" }] }
+    "description": {
+      "type": "string",
+      "minLength": 1
+    },
+    "author": {
+      "$ref": "#/definitions/person"
+    },
+    "homepage": {
+      "type": "string",
+      "format": "uri"
+    },
+    "repository": {
+      "type": "string",
+      "format": "uri"
+    },
+    "license": {
+      "type": "string"
+    },
+    "keywords": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "commands": {
+      "$ref": "#/definitions/paths"
+    },
+    "agents": {
+      "oneOf": [
+        {
+          "type": "string",
+          "pattern": "^\\./.*\\.md$"
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^\\./.*\\.md$"
+          }
+        }
+      ]
+    },
+    "skills": {
+      "$ref": "#/definitions/paths"
+    },
+    "hooks": {
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "object"
+        }
+      ]
+    },
+    "mcpServers": {
+      "oneOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "object"
+        }
+      ]
+    }
   },
   "definitions": {
     "person": {
@@ -31,15 +90,33 @@
       "required": ["name"],
       "additionalProperties": false,
       "properties": {
-        "name": { "type": "string", "minLength": 1 },
-        "email": { "type": "string", "format": "email" },
-        "url": { "type": "string", "format": "uri" }
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "email": {
+          "type": "string",
+          "format": "email"
+        },
+        "url": {
+          "type": "string",
+          "format": "uri"
+        }
       }
     },
     "paths": {
       "oneOf": [
-        { "type": "string", "pattern": "^\\./" },
-        { "type": "array", "items": { "type": "string", "pattern": "^\\./" } }
+        {
+          "type": "string",
+          "pattern": "^\\./"
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^\\./"
+          }
+        }
       ]
     }
   }

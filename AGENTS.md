@@ -18,7 +18,8 @@ Dazzle gives Vite projects design levers, a local studio and design checks, plus
 
 - `packages/cli`: `@rosdal/dazzle`, the only published package. Bin `dazzle`; subpath exports `./vite`, `./config`, `./runtime`, `./levers`. Its build bundles the private packages in, copies their declarations to `dist/internal/`, and copies the built studio to `dist/studio/`.
 - `packages/config`, `runtime`, `vite-plugin`, `check`, `mcp`, `studio`: private `@rosdal/dazzle-*` packages. Each `exports` a `source` condition, so tests and the CLI build read TypeScript directly.
-- `plugin/`: the Claude Code plugin (commands, skills, agents, hooks). `.claude-plugin/marketplace.json` at the root points at it.
+- `plugin/`: the Claude Code plugin. `commands/dazzle.md` only routes `$ARGUMENTS` (studio, review [url], or a request) to the one skill, `skills/dazzle/`: a short router `SKILL.md` (≤ 300 lines, `user-invocable: false` so the command owns `/dazzle`) plus 13 `references/`. Direction archetypes live in `knowledge/directions/`; trigger prompts in `tests/triggers.yaml`. `.claude-plugin/marketplace.json` at the root points at the plugin.
+- Knowledge files are instructions to Claude: imperative, with numbers wherever a number exists. References use exactly the headings Principles, Defaults, Do, Don't, Patterns, Recipes, Checks; rule ids are defined in `anti-patterns.md` (rules) and `performance.md` (budgets). `pnpm lint:knowledge` enforces all of it.
 - `schemas/`: JSON schemas for `plugin.json` and `marketplace.json`, checked by `pnpm validate:plugin`.
 - `recipes/`, `bench/`: see their READMEs.
 
@@ -32,6 +33,8 @@ pnpm lint             # biome check
 pnpm typecheck        # tsc --noEmit per package
 pnpm validate:plugin  # manifest schemas and version sync
 pnpm smoke:pack       # pack, install, run dazzle --version
+pnpm lint:knowledge   # plugin skill, references, directions, trigger prompts
+pnpm test:triggers    # skill trigger tests via claude -p; costs tokens, run by hand (--no-bare without an API key)
 ```
 
 Run `pnpm lint && pnpm typecheck && pnpm test && pnpm build` before calling a change done.
