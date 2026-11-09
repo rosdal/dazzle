@@ -32,7 +32,7 @@ In Claude Code:
 
 ## Design
 
-The design doc is not public yet; [docs/](docs/README.md) will carry it once it is.
+Docs live at [rosdal.github.io/dazzle](https://rosdal.github.io/dazzle/). The design doc is not public yet.
 
 ## Intended use
 

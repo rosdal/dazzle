@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dazzle</title>
+<meta name="description" content="Design levers, a studio and checks for original sites built with Claude Code. Pre-alpha.">
+<meta property="og:title" content="Dazzle">
+<meta property="og:description" content="Design levers, a studio and checks for original sites built with Claude Code.">
+<style>
+:root {
+  --bg: #ffffff;
+  --bg-soft: #f6f8fa;
+  --fg: #1f2328;
+  --muted: #59636e;
+  --line: #d1d9e0;
+  --warn: #9a6700;
+  --code-bg: #0d1117;
+  --code-fg: #e6edf3;
+  --radius: 10px;
+  --mono: "Cascadia Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --sans: system-ui, "Segoe UI", -apple-system, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0d1117;
+    --bg-soft: #151b23;
+    --fg: #e6edf3;
+    --muted: #9198a1;
+    --line: #2b323b;
+    --warn: #d29922;
+    --code-bg: #010409;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.6 var(--sans); }
+main { max-width: 44rem; margin: 0 auto; padding: 4rem 16px 5rem; }
+a { color: inherit; text-underline-offset: 3px; }
+h1 { font-size: 2.5rem; line-height: 1.1; margin: 0 0 1rem; letter-spacing: -0.02em; }
+h2 { font-size: 1.15rem; margin: 2.5rem 0 0.75rem; }
+p { margin: 0 0 1rem; }
+.lede { font-size: 1.2rem; color: var(--muted); }
+.status { display: inline-block; font-size: 0.85rem; font-weight: 600; color: var(--warn); border: 1px solid currentColor; border-radius: 999px; padding: 0.1rem 0.7rem; margin-bottom: 1.5rem; }
+pre { background: var(--code-bg); color: var(--code-fg); font: 0.9rem/1.6 var(--mono); padding: 1rem 1.25rem; border-radius: var(--radius); overflow-x: auto; margin: 0 0 1rem; }
+ul { padding-left: 1.25rem; margin: 0 0 1rem; }
+code { font-family: var(--mono); font-size: 0.92em; }
+footer { margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.9rem; }
+</style>
+</head>
+<body>
+<main>
+  <span class="status">Pre-alpha</span>
+  <h1>Dazzle</h1>
+  <p class="lede">Design levers, a local studio and design checks for original sites built with Claude Code.</p>
+  <p>Nothing works yet: every command is a stub. This page will grow into the docs as features land.</p>
+
+  <h2>Planned</h2>
+  <ul>
+    <li>An npm package, <code>@rosdal/dazzle</code>, with a Vite plugin and the <code>dazzle</code> CLI</li>
+    <li>A Claude Code plugin, released with the same version</li>
+  </ul>
+  <pre>npx @rosdal/dazzle --help
+
+/plugin marketplace add rosdal/dazzle
+/plugin install dazzle@rosdal</pre>
+
+  <h2>Intended use</h2>
+  <p>Dazzle is for original sites only. It never clones a named site, and everything it generates in your project is yours.</p>
+
+  <footer>
+    <a href="https://github.com/Rosdal/dazzle">GitHub</a> · MIT license · Rosdal
+  </footer>
+</main>
+</body>
+</html>
