@@ -6,11 +6,11 @@
   "author": "Rosdal",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Rosdal/dazzle.git",
+    "url": "git+https://github.com/rosdal/dazzle.git",
     "directory": "packages/cli"
   },
-  "homepage": "https://github.com/Rosdal/dazzle#readme",
-  "bugs": "https://github.com/Rosdal/dazzle/issues",
+  "homepage": "https://github.com/rosdal/dazzle#readme",
+  "bugs": "https://github.com/rosdal/dazzle/issues",
   "keywords": [
     "design",
     "vite",
