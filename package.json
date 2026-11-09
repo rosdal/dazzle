@@ -22,7 +22,7 @@
     "test:triggers": "node scripts/test-triggers.mjs"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.6.4",
+    "@biomejs/biome": "2.6.6",
     "@changesets/cli": "^3.0.3",
     "@types/node": "^22",
     "ajv": "^8.20.0",
