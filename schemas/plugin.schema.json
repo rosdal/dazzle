@@ -1,0 +1,46 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/Rosdal/dazzle/schemas/plugin.schema.json",
+  "title": "Claude Code plugin manifest (.claude-plugin/plugin.json)",
+  "description": "The subset of the Claude Code plugin manifest that Dazzle uses, kept strict so typos fail CI.",
+  "type": "object",
+  "required": ["name", "version", "description", "author"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string" },
+    "name": { "type": "string", "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$" },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+(-[0-9A-Za-z.-]+)?$"
+    },
+    "description": { "type": "string", "minLength": 1 },
+    "author": { "$ref": "#/definitions/person" },
+    "homepage": { "type": "string", "format": "uri" },
+    "repository": { "type": "string", "format": "uri" },
+    "license": { "type": "string" },
+    "keywords": { "type": "array", "items": { "type": "string" } },
+    "commands": { "$ref": "#/definitions/paths" },
+    "agents": { "$ref": "#/definitions/paths" },
+    "skills": { "$ref": "#/definitions/paths" },
+    "hooks": { "oneOf": [{ "type": "string" }, { "type": "object" }] },
+    "mcpServers": { "oneOf": [{ "type": "string" }, { "type": "object" }] }
+  },
+  "definitions": {
+    "person": {
+      "type": "object",
+      "required": ["name"],
+      "additionalProperties": false,
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "email": { "type": "string", "format": "email" },
+        "url": { "type": "string", "format": "uri" }
+      }
+    },
+    "paths": {
+      "oneOf": [
+        { "type": "string", "pattern": "^\\./" },
+        { "type": "array", "items": { "type": "string", "pattern": "^\\./" } }
+      ]
+    }
+  }
+}

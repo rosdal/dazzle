@@ -1,0 +1,29 @@
+name: Feature request
+description: Suggest something Dazzle should do
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What are you trying to do, and what gets in the way today?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal
+      description: What you'd like Dazzle to do. Note which part it belongs to if you know (CLI, Vite plugin, studio, check, MCP, Claude Code plugin, recipes).
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+  - type: checkboxes
+    id: scope
+    attributes:
+      label: Intended use
+      options:
+        - label: This fits the [intended use](https://github.com/Rosdal/dazzle#intended-use) (original sites only; Dazzle never clones a named site)
+          required: true

@@ -1,0 +1,19 @@
+{
+  "name": "@rosdal/dazzle-check",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Dazzle: Design checks (internal, bundled into @rosdal/dazzle).",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": {
+      "source": "./src/index.ts",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsup && tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit"
+  }
+}

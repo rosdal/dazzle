@@ -1,0 +1,31 @@
+{
+  "name": "dazzle-monorepo",
+  "private": true,
+  "type": "module",
+  "packageManager": "pnpm@12.16.1",
+  "engines": {
+    "node": ">=22.15"
+  },
+  "scripts": {
+    "build": "pnpm -r --filter \"./packages/**\" run build",
+    "test": "vitest run",
+    "lint": "biome check .",
+    "format": "biome format --write .",
+    "typecheck": "pnpm -r --filter \"./packages/**\" run typecheck",
+    "dev:studio": "pnpm --filter @rosdal/dazzle-studio run dev",
+    "validate:plugin": "node scripts/validate-plugin.mjs",
+    "smoke:pack": "node scripts/smoke-pack.mjs",
+    "changeset": "changeset",
+    "release": "pnpm lint && pnpm typecheck && pnpm test && pnpm build && changeset publish",
+    "version-packages": "changeset version && node scripts/sync-plugin-version.mjs && biome format --write .claude-plugin plugin"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.6.4",
+    "@changesets/cli": "^3.0.3",
+    "@types/node": "^22",
+    "ajv": "^8.20.0",
+    "tsup": "^9.0.0",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.5"
+  }
+}

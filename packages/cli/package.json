@@ -1,0 +1,77 @@
+{
+  "name": "@rosdal/dazzle",
+  "version": "0.0.0",
+  "description": "Design levers, a studio and checks for original sites built with Claude Code.",
+  "license": "MIT",
+  "author": "Rosdal",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rosdal/dazzle.git",
+    "directory": "packages/cli"
+  },
+  "homepage": "https://github.com/Rosdal/dazzle#readme",
+  "bugs": "https://github.com/Rosdal/dazzle/issues",
+  "keywords": [
+    "design",
+    "vite",
+    "claude-code",
+    "cli"
+  ],
+  "type": "module",
+  "bin": {
+    "dazzle": "./dist/cli.js"
+  },
+  "exports": {
+    "./config": {
+      "types": "./dist/config.d.ts",
+      "import": "./dist/config.js"
+    },
+    "./levers": {
+      "types": "./dist/levers.d.ts",
+      "import": "./dist/levers.js"
+    },
+    "./runtime": {
+      "types": "./dist/runtime.d.ts",
+      "import": "./dist/runtime.js"
+    },
+    "./vite": {
+      "types": "./dist/vite.d.ts",
+      "import": "./dist/vite.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=22.15"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "scripts": {
+    "build": "node -e \"fs.rmSync('dist', { recursive: true, force: true })\" && tsup && tsc -p tsconfig.build.json && node scripts/postbuild.mjs",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "citty": "^0.2.2"
+  },
+  "peerDependencies": {
+    "vite": ">=7"
+  },
+  "peerDependenciesMeta": {
+    "vite": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@rosdal/dazzle-check": "workspace:*",
+    "@rosdal/dazzle-config": "workspace:*",
+    "@rosdal/dazzle-mcp": "workspace:*",
+    "@rosdal/dazzle-runtime": "workspace:*",
+    "@rosdal/dazzle-studio": "workspace:*",
+    "@rosdal/dazzle-vite-plugin": "workspace:*",
+    "vite": "^8.3.5"
+  }
+}

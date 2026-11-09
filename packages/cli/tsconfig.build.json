@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist",
+    "emitDeclarationOnly": true,
+    "customConditions": []
+  },
+  "include": ["src/config.ts", "src/levers.ts", "src/runtime.ts", "src/vite.ts"]
+}

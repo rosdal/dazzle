@@ -1,0 +1,44 @@
+name: Bug report
+description: Something in Dazzle doesn't work as expected
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Security problems go through [private vulnerability reporting](https://github.com/Rosdal/dazzle/security/advisories/new), not here.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you ran, what you expected, and what you got instead.
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      description: The exact command, and a minimal project that shows the problem if you can share one.
+      placeholder: |
+        1. npx @rosdal/dazzle init
+        2. ...
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Output or logs
+      render: shell
+  - type: input
+    id: version
+    attributes:
+      label: dazzle version
+      placeholder: output of `dazzle --version`
+    validations:
+      required: true
+  - type: input
+    id: env
+    attributes:
+      label: Environment
+      placeholder: OS, Node version, package manager
+    validations:
+      required: true

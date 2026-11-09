@@ -1,0 +1,23 @@
+node_modules/
+dist/
+coverage/
+*.log
+*.tgz
+.env*
+!.env.example
+
+# Dazzle per-project state that must never be committed
+.dazzle/checks/
+.dazzle/queue.json
+playwright-report/
+test-results/
+
+# Corpus material lives only in the private Rosdal/dazzle-corpus repo
+**/corpus/
+
+# Product plan and todos stay local
+docs/design.md
+docs/todo/
+
+# Impeccable hook cache
+.impeccable/hook.cache.json

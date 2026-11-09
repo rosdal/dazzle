@@ -1,0 +1,13 @@
+{
+  "name": "dazzle",
+  "version": "0.0.0",
+  "description": "Design levers, a studio and checks for original sites built with Claude Code.",
+  "author": {
+    "name": "Rosdal",
+    "url": "https://github.com/Rosdal"
+  },
+  "homepage": "https://github.com/Rosdal/dazzle",
+  "repository": "https://github.com/Rosdal/dazzle",
+  "license": "MIT",
+  "keywords": ["design", "vite", "frontend"]
+}
