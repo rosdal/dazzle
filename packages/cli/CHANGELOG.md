@@ -1,5 +1,11 @@
 # @rosdal/dazzle
 
+## 0.1.1
+
+### Patch Changes
+
+- 742da86: Publish through npm trusted publishing, with provenance.
+
 ## 0.1.0
 
 ### Minor Changes
