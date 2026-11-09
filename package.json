@@ -16,7 +16,7 @@
     "validate:plugin": "node scripts/validate-plugin.mjs",
     "smoke:pack": "node scripts/smoke-pack.mjs",
     "changeset": "changeset",
-    "release": "pnpm lint && pnpm typecheck && pnpm test && pnpm build && changeset publish",
+    "release": "pnpm lint && pnpm typecheck && pnpm test && pnpm build && node scripts/stage-publish.mjs",
     "version-packages": "changeset version && node scripts/sync-plugin-version.mjs && biome format --write .claude-plugin plugin"
   },
   "devDependencies": {
