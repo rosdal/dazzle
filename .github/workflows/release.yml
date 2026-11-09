@@ -24,7 +24,6 @@ jobs:
         with:
           node-version: 24
           cache: pnpm
-          registry-url: https://registry.npmjs.org
       - run: pnpm install --frozen-lockfile
       # `npm stage publish` (scripts/stage-publish.mjs) needs a recent npm.
       - run: npm install -g npm@11.19.1

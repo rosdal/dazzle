@@ -5,7 +5,7 @@
 // then tags the commit and prints changesets' "New tag:" line so changesets/action pushes the tag
 // and creates the GitHub release.
 import { execFileSync } from "node:child_process";
-import { mkdtempSync, readdirSync, readFileSync, rmSync } from "node:fs";
+import { mkdtempSync, readdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -35,10 +35,19 @@ try {
   run("pnpm", ["pack", "--pack-destination", work], cli);
   const tarball = readdirSync(work).find((f) => f.endsWith(".tgz"));
   if (!tarball) throw new Error("pnpm pack produced no tarball");
+  // setup-node and changesets/action write an _authToken line (a placeholder or an empty
+  // NPM_TOKEN) into ~/.npmrc, and npm sends that instead of exchanging the GitHub OIDC token,
+  // which fails with E401. Stage with an empty user config and no token variables, so OIDC is the
+  // only credential.
+  const userconfig = path.join(work, "npmrc");
+  writeFileSync(userconfig, "registry=https://registry.npmjs.org/\n");
+  const env = { ...process.env, npm_config_userconfig: userconfig };
+  delete env.NODE_AUTH_TOKEN;
+  delete env.NPM_TOKEN;
   execFileSync(
     "npm",
     ["stage", "publish", path.join(work, tarball), "--provenance", "--access", "public"],
-    { cwd: root, stdio: "inherit" },
+    { cwd: root, stdio: "inherit", env },
   );
 } finally {
   rmSync(work, { recursive: true, force: true });
