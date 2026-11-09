@@ -17,7 +17,9 @@
     "smoke:pack": "node scripts/smoke-pack.mjs",
     "changeset": "changeset",
     "release": "pnpm lint && pnpm typecheck && pnpm test && pnpm build && node scripts/stage-publish.mjs",
-    "version-packages": "changeset version && node scripts/sync-plugin-version.mjs && biome format --write .claude-plugin plugin"
+    "version-packages": "changeset version && node scripts/sync-plugin-version.mjs && biome format --write .claude-plugin plugin",
+    "lint:knowledge": "node scripts/lint-knowledge.mjs",
+    "test:triggers": "node scripts/test-triggers.mjs"
   },
   "devDependencies": {
     "@biomejs/biome": "2.6.4",
@@ -26,6 +28,7 @@
     "ajv": "^8.20.0",
     "tsup": "^9.0.0",
     "typescript": "^7.0.2",
-    "vitest": "^5.0.5"
+    "vitest": "^5.0.5",
+    "yaml": "^2.9.1"
   }
 }

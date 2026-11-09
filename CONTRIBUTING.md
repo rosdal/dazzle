@@ -14,6 +14,12 @@ pnpm dev:studio        # studio app with hot reload
 
 `pnpm format` rewrites files with Biome.
 
+## Plugin knowledge
+
+The skill, references and direction archetypes in `plugin/` are linted in CI by `pnpm lint:knowledge`: required headings, frontmatter, the `SKILL.md` line budget, and every rule id, recipe name, path and link must resolve. Anti-pattern rules adapted from impeccable keep their attribution in `NOTICE`.
+
+Trigger tests (`pnpm test:triggers`) check that design requests load the skill and unrelated requests don't. They call the Claude API, so they run nightly (`.github/workflows/triggers.yml`, needs the `ANTHROPIC_API_KEY` secret) or by hand, never on pull requests. Without an API key, `pnpm test:triggers --no-bare` uses your logged-in Claude Code with your own plugins switched off.
+
 ## Trying the plugin locally
 
 In Claude Code, from any folder:

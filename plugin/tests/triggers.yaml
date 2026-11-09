@@ -1,0 +1,39 @@
+# Trigger tests for the dazzle skill. `pnpm test:triggers` runs each prompt through `claude -p`
+# with this plugin loaded and checks whether the model loaded the skill. Runs nightly or by hand,
+# never on pull requests (it needs an API key and costs tokens).
+
+# Prompts that must load the skill.
+trigger:
+  - make my landing page feel premium
+  - Build a launch site for a modular synth called Fold, dark and tactile.
+  - I need a portfolio site for a motion designer that could win an Awwwards SOTD.
+  - Can you make this hero section more cinematic?
+  - add a smooth scroll with Lenis and some ScrollTrigger reveals to the homepage
+  - The homepage looks generic and AI-made. Make it look better.
+  - Add a three.js scene to the hero with a rotating product model.
+  - I want a WebGL shader background on the landing page, something with noise.
+  - Design a marketing site for our coffee roastery, warm and editorial.
+  - Pin the product section and animate the features in as you scroll, GSAP is fine.
+  - Give my agency site page transitions between the work pages.
+  - Our startup's landing page needs a more striking typography system.
+  - Restyle the about page with a warmer palette and better spacing.
+  - Make a one-page site for my architecture studio, minimal and luxurious.
+  - The scroll animations on my site feel cheap. How do I make them feel expensive?
+  - Create a kinetic type hero where the headline reacts to scrolling.
+  - Can you critique the design of my personal website and suggest fixes?
+  - Build an award-winning site for a fragrance launch.
+  - I want my product page to have that Apple-style pinned scroll storytelling, but our own design.
+  - Turn this bland SaaS homepage into something people would screenshot.
+
+# Prompts that must not load the skill.
+ignore:
+  - Write a Postgres migration that adds an index on orders.created_at.
+  - Why does my Express route return 404 for POST /api/users?
+  - Set up a GitHub Actions workflow that runs pytest on push.
+  - Refactor this Python function to use a generator instead of a list.
+  - My React form doesn't show validation errors when the email field is empty. Fix it.
+  - Explain the difference between a mutex and a semaphore.
+  - Add pagination to the GET /products endpoint.
+  - How do I configure ESLint to ignore the dist folder?
+  - Write unit tests for the date parsing helper in utils/date.ts.
+  - The Docker build fails with "no space left on device". What should I do?
