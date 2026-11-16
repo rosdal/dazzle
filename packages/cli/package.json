@@ -72,6 +72,6 @@
     "@rosdal/dazzle-runtime": "workspace:*",
     "@rosdal/dazzle-studio": "workspace:*",
     "@rosdal/dazzle-vite-plugin": "workspace:*",
-    "vite": "^8.3.5"
+    "vite": "^8.3.8"
   }
 }
