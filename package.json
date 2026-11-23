@@ -22,13 +22,13 @@
     "test:triggers": "node scripts/test-triggers.mjs"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.6.4",
+    "@biomejs/biome": "2.6.8",
     "@changesets/cli": "^3.0.3",
     "@types/node": "^22",
     "ajv": "^8.20.0",
     "tsup": "^9.0.0",
     "typescript": "^7.0.2",
-    "vitest": "^5.0.5",
+    "vitest": "^5.1.1",
     "yaml": "^2.9.1"
   }
 }
